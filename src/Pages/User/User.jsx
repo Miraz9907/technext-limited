@@ -5,7 +5,7 @@ const User = ({user}) => {
     // console.log(user);
     const {id, image, firstName, lastName, email, address, company} = user;
     return (
-        <div className="card w-96 glass shadow-2xl">
+        <div className="card w-96 glass  shadow-2xl">
   <figure><img className="p-2" src={image} alt="car!"/></figure>
   <div className="card-body">
     <Link to={`/detailsUsers/${id}`}><h2 className="text-2xl card-title">Name: {firstName} {lastName}</h2></Link>
