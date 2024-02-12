@@ -5,8 +5,6 @@ const Users = () => {
     const [users, setUsers] = useState([]);
     const [searchUser, setSearchUsers] = useState([]);
     const [sortBy, setSortBy] = useState('');
-
-
     useEffect( ()=>{
         const url = 'https://dummyjson.com/users';
         fetch(url)
@@ -21,9 +19,6 @@ const Users = () => {
     const onSearch = (e) =>{
         setSearchUsers(users.filter(user => user.username.toLowerCase().includes(e.target.value)))
     }
-
-
-
 
     const handleSortChange = (e) => {
         const selectedSort = e.target.value;
@@ -42,10 +37,8 @@ const Users = () => {
 
     return (
         <div>
-
         <div className="sm:flex-col md:flex-row sm:m-auto p-10">
             <input onChange={onSearch} type="text" placeholder="Search here" className="input input-bordered input-primary w-full m-4 max-w-xs" />
-
 
             <label htmlFor="sortSelect">Sort By:</label>
             <select id="sortSelect" value={sortBy} onChange={handleSortChange} className="select select-bordered w-full m-4 max-w-xs">

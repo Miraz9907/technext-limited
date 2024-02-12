@@ -1,34 +1,51 @@
-
-
 const AddUser = () => {
-
     const handleSignup = event =>{
         event.preventDefault();
         const form = event.target;
-        const avatar = form.avatar.value;
+        const image = form.image.value;
         const firstName = form.firstname.value;
         const lastName = form.lastname.value;
         const email = form.email.value;
-        const address = form.address.value;
-        const companyName = form.company.value;
+        const city = form.city.value;
+        const state = form.state.value;
+        const name = form.name.value;
 
-        console.log(avatar,firstName,lastName,email,address,companyName)
+        const user = {
+            image,
+            firstName,
+            lastName,
+            email,
+            address:{
+                city,
+                state
+            },
+            company:{
+                name,
+            }
+        }
+        console.log(user)
+        form.reset();
+
+        localStorage.setItem('userData', JSON.stringify(user));
     }
+    let data = JSON.parse(localStorage.getItem('userData'));
+    console.log(data);
+
     return (
-        <div className="mt-16"> 
+        <div className="mt-16">
             <h2 className="text-3xl text-center">Add New User </h2>
             
-
     <form onSubmit={handleSignup} className="card-body lg:w-1/2 m-auto">
             <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Avatar</span>
+                <span className="label-text">Avatar</span>
                 </label>
                 <input
-                  type="file"
-                  name='avatar'
+                type="url"
+                  name='image'
                   accept=".jpg, .jpeg .png" 
                   className="input input-bordered"
+                  placeholder="Please give your image url here"
                   required
                 />
               </div>
@@ -70,12 +87,24 @@ const AddUser = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Address</span>
+                  <span className="label-text">City</span>
                 </label>
                 <input
                   type="text"
-                  name='address'
-                  placeholder="address"
+                  name='city'
+                  placeholder="city"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">State</span>
+                </label>
+                <input
+                  type="text"
+                  name='state'
+                  placeholder="state"
                   className="input input-bordered"
                   required
                 />
@@ -86,7 +115,7 @@ const AddUser = () => {
                 </label>
                 <input
                   type="text"
-                  name='company'
+                  name='name'
                   placeholder="Company Name"
                   className="input input-bordered"
                   required
@@ -101,6 +130,7 @@ const AddUser = () => {
                 />
               </div>
             </form>
+            
         </div>
     );
 };
