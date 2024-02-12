@@ -33,9 +33,9 @@ const AddUser = () => {
 
     return (
         <div className="mt-16">
-            <h2 className="text-3xl text-center">Add New User </h2>
+            <h2 className="text-3xl text-center font-semibold my-3">Add New User </h2>
             
-    <form onSubmit={handleSignup} className="card-body lg:w-1/2 m-auto">
+    <form onSubmit={handleSignup} className="card-body lg:w-1/2 m-auto border rounded-xl shadow-2xl">
             <div className="form-control">
                 <label className="label">
                 <span className="label-text">Avatar</span>

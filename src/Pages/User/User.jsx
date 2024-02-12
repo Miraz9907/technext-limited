@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const User = ({ user }) => {
   const { id, image, firstName, lastName, email, address, company } = user;
   return (
-    <div className="card w-96 glass  shadow-2xl">
+    <div className="card w-96 glass border shadow-2xl">
       <figure>
         <img className="p-2" src={image} alt="" />
       </figure>
